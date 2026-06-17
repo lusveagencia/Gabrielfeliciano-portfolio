@@ -1,0 +1,61 @@
+{
+  "common": {
+    "hi": "Olá"
+  },
+  "header": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "blogs": "Blog",
+    "contact": "Contato",
+    "available": "Disponível para trabalho"
+  },
+  "hero": {
+    "name": "GABRIEL FELICIANO",
+    "title1": "DIGITAL",
+    "title2": "DESIGNER",
+    "subtitle": "Sou um designer digital e desenvolvedor Framer baseado no Brasil"
+  },
+  "services": {
+    "title": "O QUE POSSO FAZER POR VOCÊ",
+    "subtitle": "Como designer digital, sou um contador de histórias visuais, criando experiências que conectam profundamente e despertam criatividade.",
+    "uiux": "UI/UX Design",
+    "uiux_items": [
+      "Wireframing e prototipagem",
+      "Design de interface para apps web e mobile",
+      "Testes de usabilidade e análise de feedback",
+      "Design de interação e micro-animações"
+    ],
+    "graphic": "Design Gráfico",
+    "graphic_items": [
+      "Design de logo e identidade visual",
+      "Artes para redes sociais e anúncios",
+      "Infográficos e visualização de dados",
+      "Ilustrações e ícones personalizados"
+    ],
+    "web": "Web Design",
+    "web_items": [
+      "Design de sites responsivos",
+      "Design e otimização de landing pages",
+      "Desenvolvimento e customização Webflow",
+      "Manutenção e atualizações de sites"
+    ],
+    "branding": "Branding",
+    "branding_items": [
+      "Estratégia de marca e identidade",
+      "Criação de guia de estilo visual",
+      "Seleção de tipografia e paleta de cores",
+      "Storytelling e mensagem da marca"
+    ]
+  },
+  "about": {
+    "title": "SOBRE MIM",
+    "subtitle": "Oi, eu sou o Gabriel — um designer digital e desenvolvedor Framer apaixonado por criar experiências digitais significativas e impactantes.",
+    "stat_years": "Anos de Experiência",
+    "stat_projects": "Projetos Concluídos",
+    "stat_clients": "Clientes no Mundo",
+    "call_label": "Ligue Hoje:",
+    "email_label": "Email:",
+    "my_story": "MINHA HISTÓRIA"
+  }
+}

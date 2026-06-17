@@ -3,8 +3,11 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { HiBadge } from '@/components/HiBadge'
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
+  const t = useTranslations('hero')
+  const tc = useTranslations('common')
   const sectionRef = useRef<HTMLElement>(null)
   const nameRef = useRef<HTMLParagraphElement>(null)
   const digitalRef = useRef<HTMLSpanElement>(null)
@@ -82,8 +85,8 @@ export function HeroSection() {
             className="font-heading absolute uppercase"
             style={{
               color: 'var(--color-text-secondary)',
-              fontSize: 'clamp(16px, 1.5vw, 22px)',
-              fontWeight: 400,
+              fontSize: 'clamp(20px, 1.8vw, 28px)',
+              fontWeight: 500,
               letterSpacing: '0.05em',
               lineHeight: 1,
               left: '0.15em',
@@ -91,7 +94,7 @@ export function HeroSection() {
               marginBottom: '6px',
             }}
           >
-            GABRIEL FELICIANO
+            {t('name')}
           </p>
           <span
             ref={digitalRef}
@@ -104,12 +107,12 @@ export function HeroSection() {
               display: 'block',
             }}
           >
-            DIGITAL
+            {t('title1')}
           </span>
         </div>
 
-        {/* Photo — center */}
-        <div ref={photoRef} className="relative mx-5 flex-shrink-0 lg:mx-8">
+        {/* Photo — center (asymmetric: tighter on DESIGNER side) */}
+        <div ref={photoRef} className="relative flex-shrink-0" style={{ marginLeft: 'clamp(12px, 1.5vw, 20px)', marginRight: 'clamp(4px, 0.5vw, 8px)' }}>
           <div
             data-hero-photo
             className="overflow-hidden rounded-3xl"
@@ -131,7 +134,7 @@ export function HeroSection() {
 
           {/* Hi Badge — lives in CardFlutuante on desktop, only show on mobile */}
           <div ref={badgeRef} className="absolute md:hidden" style={{ bottom: -40, left: -40 }}>
-            <HiBadge />
+            <HiBadge text={tc('hi')} />
           </div>
         </div>
 
@@ -148,7 +151,7 @@ export function HeroSection() {
               display: 'block',
             }}
           >
-            DESIGNER
+            {t('title2')}
           </span>
           <p
             ref={subtitleRef}
@@ -160,7 +163,7 @@ export function HeroSection() {
               marginTop: '12px',
             }}
           >
-            I&apos;m a Brazil-based digital designer and Framer developer
+            {t('subtitle')}
           </p>
         </div>
       </div>
@@ -172,7 +175,7 @@ export function HeroSection() {
           className="font-heading text-lg font-medium uppercase tracking-widest"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          GABRIEL FELICIANO
+          {t('name')}
         </p>
 
         {/* Title */}
@@ -185,15 +188,15 @@ export function HeroSection() {
             color: 'var(--color-text-primary)',
           }}
         >
-          DIGITAL
+          {t('title1')}
           <br />
-          DESIGNER
+          {t('title2')}
         </h1>
 
         {/* Photo */}
         <div className="relative">
           <div
-            className="flex items-center justify-center overflow-hidden rounded-3xl"
+            className="overflow-hidden rounded-3xl"
             style={{
               width: 220,
               aspectRatio: '3/4',
@@ -207,21 +210,12 @@ export function HeroSection() {
               src="/hero-photo.jpg"
               alt="Gabriel Feliciano"
               className="h-full w-full object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none'
-              }}
             />
-            <span
-              className="font-heading text-lg uppercase"
-              style={{ color: 'var(--color-text-muted)' }}
-            >
-              Photo
-            </span>
           </div>
 
           {/* Hi Badge mobile */}
-          <div className="absolute -bottom-3 -left-3">
-            <HiBadge />
+          <div className="absolute" style={{ bottom: -40, left: -40 }}>
+            <HiBadge text={tc('hi')} />
           </div>
         </div>
 
@@ -230,7 +224,7 @@ export function HeroSection() {
           className="mt-2 max-w-xs text-center text-base"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          I&apos;m a Brazil-based digital designer and Framer developer
+          {t('subtitle')}
         </p>
       </div>
     </section>

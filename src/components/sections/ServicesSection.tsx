@@ -3,47 +3,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useTranslations } from 'next-intl'
 
 gsap.registerPlugin(ScrollTrigger)
-
-const servicesData = [
-  {
-    title: 'UI/UX Design',
-    items: [
-      'Wireframing and prototyping',
-      'User Interface design for web and mobile apps',
-      'Usability testing and user feedback analysis',
-      'Interaction design and micro-animations',
-    ],
-  },
-  {
-    title: 'Graphic Design',
-    items: [
-      'Logo and brand identity design',
-      'Social media graphics and ad creatives',
-      'Infographics and data visualization',
-      'Custom illustrations and icons',
-    ],
-  },
-  {
-    title: 'Web Design',
-    items: [
-      'Responsive website design',
-      'Landing page design and optimization',
-      'Webflow development and customization',
-      'Website maintenance and updates',
-    ],
-  },
-  {
-    title: 'Branding',
-    items: [
-      'Brand strategy and identity development',
-      'Visual style guide creation',
-      'Typography and color scheme selection',
-      'Brand storytelling and messaging',
-    ],
-  },
-]
 
 const imageUrls = [
   '/placeholder-service-1.jpg',
@@ -53,6 +15,15 @@ const imageUrls = [
 ]
 
 export function ServicesSection() {
+  const t = useTranslations('services')
+
+  const servicesData = [
+    { title: t('uiux'), items: t.raw('uiux_items') as string[] },
+    { title: t('graphic'), items: t.raw('graphic_items') as string[] },
+    { title: t('web'), items: t.raw('web_items') as string[] },
+    { title: t('branding'), items: t.raw('branding_items') as string[] },
+  ]
+
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const sectionRef = useRef<HTMLElement>(null)
   const floatingImgRef = useRef<HTMLImageElement>(null)
@@ -143,14 +114,13 @@ export function ServicesSection() {
               letterSpacing: '-0.02em',
             }}
           >
-            WHAT I CAN DO FOR YOU
+            {t('title')}
           </h2>
           <p
             className="mb-10 max-w-lg text-base"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            As a digital designer, I am a visual storyteller, crafting
-            experiences that connect deeply and spark creativity.
+            {t('subtitle')}
           </p>
 
           {/* Accordion */}

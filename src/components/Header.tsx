@@ -3,20 +3,23 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Blogs', href: '#blogs' },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export function Header() {
+  const t = useTranslations('header')
+  const locale = useLocale()
   const headerRef = useRef<HTMLElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLAnchorElement>(null)
   const separatorRef = useRef<HTMLDivElement>(null)
   const availableRef = useRef<HTMLDivElement>(null)
+
+  const NAV_LINKS = [
+    { label: t('home'), href: '#home' },
+    { label: t('about'), href: '#about' },
+    { label: t('projects'), href: '#projects' },
+    { label: t('blogs'), href: '#blogs' },
+  ]
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -30,7 +33,6 @@ export function Header() {
 
       if (!header || !nav || !contact || !separator || !available) return
 
-      // Entrance animation
       gsap.from(header, {
         y: -60,
         opacity: 0,
@@ -39,7 +41,6 @@ export function Header() {
         ease: 'power3.out',
       })
 
-      // Measure and set explicit width
       const fullWidth = header.offsetWidth
       gsap.set(header, { width: fullWidth })
       gsap.set(available, { autoAlpha: 0, scale: 0.8 })
@@ -53,30 +54,23 @@ export function Header() {
         },
       })
 
-      // All nav elements fade out together at the same time
       tl.to(
         [separator, nav, contact],
         { autoAlpha: 0, scale: 0.8, duration: 0.4 },
         0
       )
 
-      // Shrink header — starts at same time, slightly longer duration
-      tl.to(
-        header,
-        { width: 250, duration: 0.5 },
-        0
-      )
+      tl.to(header, { width: 250, duration: 0.5 }, 0)
 
-      // Show "available" — starts right after shrink begins
-      tl.to(
-        available,
-        { autoAlpha: 1, scale: 1, duration: 0.3 },
-        0.3
-      )
+      tl.to(available, { autoAlpha: 1, scale: 1, duration: 0.3 }, 0.3)
+
+      // Refresh after a frame to sync with current scroll position
+      requestAnimationFrame(() => ScrollTrigger.refresh())
     })
 
     return () => ctx.revert()
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale])
 
   return (
     <header
@@ -88,7 +82,6 @@ export function Header() {
         willChange: 'width',
       }}
     >
-      {/* Avatar */}
       <div
         className="h-8 w-8 shrink-0 overflow-hidden rounded-full"
         style={{ border: '1px solid var(--color-border-muted)' }}
@@ -106,14 +99,12 @@ export function Header() {
         />
       </div>
 
-      {/* Separator */}
       <div
         ref={separatorRef}
         className="h-5 w-px shrink-0"
         style={{ backgroundColor: 'var(--color-border)' }}
       />
 
-      {/* Nav Links */}
       <nav ref={navRef} className="hidden items-center gap-6 md:flex">
         {NAV_LINKS.map((link) => (
           <a
@@ -137,7 +128,6 @@ export function Header() {
         ))}
       </nav>
 
-      {/* Contact Button */}
       <a
         ref={contactRef}
         href="#contact"
@@ -149,10 +139,9 @@ export function Header() {
           transitionTimingFunction: 'var(--ease-default)',
         }}
       >
-        <span>Contact</span>
+        <span>{t('contact')}</span>
       </a>
 
-      {/* "Available for work" — compact state: centered, dot on the RIGHT */}
       <div
         ref={availableRef}
         className="absolute inset-0 flex items-center justify-center gap-2"
@@ -165,7 +154,7 @@ export function Header() {
           className="font-body text-xs font-medium whitespace-nowrap"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          Available for work
+          {t('available')}
         </span>
         <div
           className="h-2 w-2 shrink-0 animate-pulse rounded-full"

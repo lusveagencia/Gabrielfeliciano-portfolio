@@ -256,7 +256,7 @@
 /* Base Styles                                               */
 /* ========================================================= */
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior handled via data-scroll-behavior attribute on <html> */
 }
 
 body {

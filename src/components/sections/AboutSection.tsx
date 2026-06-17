@@ -3,14 +3,16 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-const stats = [
-  { value: 12, label: 'Years of Experience', suffix: '' },
-  { value: 270, label: 'Completed Projects', suffix: '' },
-  { value: 50, label: 'Clients on Worldwide', suffix: '+' },
-] as const;
+import { useTranslations } from 'next-intl';
 
 export default function AboutSection() {
+  const t = useTranslations('about');
+
+  const stats = [
+    { value: 12, label: t('stat_years'), suffix: '' },
+    { value: 270, label: t('stat_projects'), suffix: '' },
+    { value: 50, label: t('stat_clients'), suffix: '+' },
+  ] as const;
   const sectionRef = useRef<HTMLElement>(null);
   const numberRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
@@ -58,7 +60,7 @@ export default function AboutSection() {
             className="font-heading uppercase text-3xl md:text-4xl font-bold"
             style={{ color: 'var(--color-text-primary)' }}
           >
-            ABOUT ME
+            {t('title')}
           </h2>
 
           {/* Subtitle */}
@@ -70,9 +72,7 @@ export default function AboutSection() {
               fontFamily: 'var(--font-body)',
             }}
           >
-            Hi, I&apos;m Gabriel &mdash; a digital designer and Framer developer
-            passionate about crafting meaningful and impactful digital
-            experiences.
+            {t('subtitle')}
           </p>
 
           {/* Stats Grid */}
@@ -111,7 +111,7 @@ export default function AboutSection() {
                 className="text-xs block"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Call Today:
+                {t('call_label')}
               </span>
               <a
                 href="tel:+15551234567"
@@ -126,7 +126,7 @@ export default function AboutSection() {
                 className="text-xs block"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Email:
+                {t('email_label')}
               </span>
               <a
                 href="mailto:designer@example.com"
@@ -240,7 +240,7 @@ export default function AboutSection() {
                 className="font-heading uppercase text-sm font-bold"
                 style={{ color: 'var(--color-primary)' }}
               >
-                MY STORY
+                {t('my_story')}
               </span>
             </a>
           </div>
