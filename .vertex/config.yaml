@@ -1,0 +1,58 @@
+# Vertex Framework Configuration
+# Versao: 1.0.0
+
+framework:
+  name: Vertex
+  version: 1.0.0
+  language: pt-BR
+
+# Modo do projeto (rapido | padrao | critico)
+# rapido: landing pages, sites institucionais
+# padrao: web apps, SaaS, dashboards
+# critico: fintech, saude, e-commerce com pagamento
+mode: padrao
+
+# Agentes habilitados (todos por padrao no modo padrao/critico)
+agents:
+  estrategista: true
+  arquiteto: true
+  designer: true
+  dev: true
+  seguranca: true
+  juridico: true
+  revisor: true
+
+# Stack padrao (sobrescrito por docs/arquitetura.md quando gerado)
+stack:
+  frontend: Next.js
+  styling: Tailwind CSS
+  backend: Supabase
+  language: TypeScript
+  deployment: Vercel
+
+# Localizacoes dos artefatos
+paths:
+  brief: docs/brief.md
+  requisitos: docs/requisitos.md
+  arquitetura: docs/arquitetura.md
+  design_system: docs/design-system/
+  regras_seguranca: docs/regras-seguranca.md
+  regras_lgpd: docs/regras-lgpd.md
+  handoffs: .vertex/handoffs/
+  gates: .vertex/gates/
+
+# Fases do workflow
+phases:
+  1_descoberta:
+    agent: estrategista
+    gate: user_approval
+  2_fundacao:
+    agents: [arquiteto, designer, seguranca, juridico]
+    gate: all_artifacts_approved
+  3_construcao:
+    agent: dev
+    gate: feature_complete
+  4_validacao:
+    orchestrator: revisor
+    reviewers: [seguranca, juridico, designer]
+    gate: all_reviews_pass

@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:portavia.framer.website)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx create-next-app@latest temp-next --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(cp -r temp-next/src .)",
+      "Bash(cp -r temp-next/public .)",
+      "Bash(cp temp-next/package.json .)",
+      "Bash(cp temp-next/tsconfig.json .)",
+      "Bash(cp temp-next/next.config.ts .)",
+      "Bash(cp -r temp-next/node_modules .)",
+      "Bash(rm -rf temp-next)",
+      "Bash(ls -d */)",
+      "Bash(ls *.json *.ts *.mjs)",
+      "Bash(npm install:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx next:*)",
+      "Bash(npm run:*)",
+      "Bash(rm -rf .next)",
+      "Bash(npx kill-port:*)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Bash(node -e \"const sharp = require\\('sharp'\\); sharp\\('public/hero-photo.jpg'\\).metadata\\(\\).then\\(m => console.log\\(m.width, m.height\\)\\)\")",
+      "Bash(python -c \"from PIL import Image; i=Image.open\\('public/hero-photo.jpg'\\); print\\(i.width, i.height\\)\")",
+      "Bash(powershell -c 'Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\(\\(Resolve-Path '\\\\''public/hero-photo.jpg'\\\\''\\)\\); Write-Host $i.Width $i.Height')"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+# Preferencias do usuario / empresa
+# Persistem entre projetos
+
+usuario:
+  nome: "Gabriel"
+  papel: "solo"
+  nivel_experiencia: "intermediario"
+
+empresa:
+  nome: ""
+  segmento: ""
+  tamanho: ""
+
+stack_preferida:
+  frontend: "next"
+  backend: "supabase"
+  database: "supabase"
+  auth: ""
+  deploy: ""
+  styling: ""
+
+padroes:
+  linguagem_codigo: "pt-br"
+  commits: "convencional"
+  testes: ""
+  linter: ""
+
+design:
+  mood_recorrente: ""
+  cores_marca: []
+  tipografia_preferida: ""
+
+historico_projetos: []

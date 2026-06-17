@@ -1,0 +1,213 @@
+/*
+ * ============================================================
+ * Portfolio Gabriel — Design Tokens (CSS Custom Properties)
+ * ============================================================
+ * Documento: Design Tokens CSS
+ * Projeto:   Portfolio Gabriel
+ * Autor:     @designer (Diana)
+ * Fase:      2 — Fundacao
+ * Versao:    1.0
+ * Status:    rascunho
+ * Criado:    2026-06-16
+ * Atualizado: 2026-06-16
+ * Source:    Generated from tokens.json
+ * ============================================================
+ */
+
+:root {
+  /* ===================== Neutral Scale ===================== */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f9f9f9;
+  --color-neutral-100: #f2f2f2;
+  --color-neutral-200: #e0e0e0;
+  --color-neutral-300: #c7c7c7;
+  --color-neutral-400: #a0a0a0;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #555555;
+  --color-neutral-700: #3d3d3d;
+  --color-neutral-800: #303030;
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-950: #111111;
+
+  /* ================== Accent Lime Scale =================== */
+  --color-accent-lime-50: #f5ffe6;
+  --color-accent-lime-100: #e8ffbf;
+  --color-accent-lime-200: #dbff99;
+  --color-accent-lime-300: #d0ff71;
+  --color-accent-lime-400: #b8e65a;
+  --color-accent-lime-500: #9fcc44;
+  --color-accent-lime-600: #86b330;
+  --color-accent-lime-700: #6d991f;
+  --color-accent-lime-800: #547a14;
+  --color-accent-lime-900: #3b5c0b;
+
+  /* ================= Accent Indigo Scale =================== */
+  --color-accent-indigo-50: #eef0ff;
+  --color-accent-indigo-100: #dde0ff;
+  --color-accent-indigo-200: #c3c7ff;
+  --color-accent-indigo-300: #a1a7ff;
+  --color-accent-indigo-400: #8188f0;
+  --color-accent-indigo-500: #5e67e6;
+  --color-accent-indigo-600: #4a52cc;
+  --color-accent-indigo-700: #3b42a3;
+  --color-accent-indigo-800: #2d3380;
+  --color-accent-indigo-900: #21265e;
+
+  /* =================== Success Scale ====================== */
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-200: #a7f3d0;
+  --color-success-300: #6ee7b7;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065f46;
+  --color-success-900: #064e3b;
+
+  /* =================== Warning Scale ====================== */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+
+  /* =================== Danger Scale ======================= */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+
+  /* ==================== Info Scale ======================== */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-200: #bfdbfe;
+  --color-info-300: #93c5fd;
+  --color-info-400: #60a5fa;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+  --color-info-800: #1e40af;
+  --color-info-900: #1e3a8a;
+
+  /* ==================== Typography ======================== */
+  --font-heading: 'Antonio', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.3125rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.375rem;
+  --text-3xl: 3.125rem;
+  --text-4xl: 4.1875rem;
+  --text-5xl: 5.5625rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --leading-body: 1.5;
+  --leading-heading: 1.15;
+  --leading-tight: 1.1;
+  --leading-ui: 1.3;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+
+  /* ====================== Spacing ======================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ======================= Radii ========================= */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* ====================== Motion ========================= */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ==================== Breakpoints ====================== */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ========================================================= */
+/* Light Theme (Default)                                     */
+/* ========================================================= */
+:root,
+[data-theme="light"] {
+  --color-bg: #f9f9f9;
+  --color-surface: #f2f2f2;
+  --color-surface-raised: #ffffff;
+  --color-border: #e0e0e0;
+  --color-border-muted: #ebebeb;
+  --color-text-primary: #303030;
+  --color-text-secondary: #737373;
+  --color-text-muted: #a0a0a0;
+  --color-primary: #5e67e6;
+  --color-primary-hover: #4a52cc;
+  --color-primary-light: #eef0ff;
+  --color-focus-ring: rgba(94, 103, 230, 0.35);
+
+  --shadow-sm: 0 1px 2px rgba(48, 48, 48, 0.05);
+  --shadow-md: 0 4px 12px rgba(48, 48, 48, 0.08), 0 1px 3px rgba(48, 48, 48, 0.04);
+  --shadow-lg: 0 12px 32px rgba(48, 48, 48, 0.12), 0 4px 8px rgba(48, 48, 48, 0.06);
+}
+
+/* ========================================================= */
+/* Dark Theme                                                */
+/* ========================================================= */
+[data-theme="dark"] {
+  --color-bg: #111111;
+  --color-surface: #1a1a1a;
+  --color-surface-raised: #222222;
+  --color-border: #2e2e2e;
+  --color-border-muted: #252525;
+  --color-text-primary: #ececec;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #666666;
+  --color-primary: #d0ff71;
+  --color-primary-hover: #b8e65a;
+  --color-primary-light: rgba(208, 255, 113, 0.12);
+  --color-focus-ring: rgba(208, 255, 113, 0.35);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5), 0 4px 8px rgba(0, 0, 0, 0.25);
+}
