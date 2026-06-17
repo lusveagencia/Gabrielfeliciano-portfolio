@@ -7,7 +7,7 @@ interface HiBadgeProps {
   size?: number
 }
 
-export function HiBadge({ className = '', size = 96 }: HiBadgeProps) {
+export function HiBadge({ className = '', size = 120 }: HiBadgeProps) {
   const lottieSize = Math.round(size * 0.55)
 
   return (

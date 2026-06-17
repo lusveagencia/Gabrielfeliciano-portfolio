@@ -111,9 +111,10 @@ export function HeroSection() {
         {/* Photo — center */}
         <div ref={photoRef} className="relative mx-5 flex-shrink-0 lg:mx-8">
           <div
+            data-hero-photo
             className="overflow-hidden rounded-3xl"
             style={{
-              width: 'clamp(280px, 25vw, 344px)',
+              width: 'clamp(300px, 30vw, 400px)',
               aspectRatio: '344/479',
               backgroundColor: 'var(--color-surface-raised)',
               boxShadow: 'var(--shadow-lg)',
@@ -128,8 +129,8 @@ export function HeroSection() {
             />
           </div>
 
-          {/* Hi Badge */}
-          <div ref={badgeRef} className="absolute -bottom-4 -left-4">
+          {/* Hi Badge — lives in CardFlutuante on desktop, only show on mobile */}
+          <div ref={badgeRef} className="absolute md:hidden" style={{ bottom: -40, left: -40 }}>
             <HiBadge />
           </div>
         </div>

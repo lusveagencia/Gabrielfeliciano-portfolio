@@ -130,6 +130,7 @@ export function ServicesSection() {
   return (
     <section
       ref={sectionRef}
+      id="services"
       className="relative min-h-screen px-6 py-20 md:px-12 lg:px-20"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2">
