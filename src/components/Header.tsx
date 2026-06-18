@@ -43,26 +43,51 @@ export function Header() {
 
       const fullWidth = header.offsetWidth
       gsap.set(header, { width: fullWidth })
-      gsap.set(available, { autoAlpha: 0, scale: 0.8 })
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: document.body,
-          start: 'top -100px',
-          end: '+=150',
-          scrub: 0.3,
+      // If page loads already scrolled, start collapsed
+      let isCollapsed = window.scrollY > 100
+
+      if (isCollapsed) {
+        gsap.set([separator, nav, contact], { autoAlpha: 0, scale: 0.8 })
+        gsap.set(header, { width: 250 })
+        gsap.set(available, { autoAlpha: 1, scale: 1 })
+      }
+
+      function collapse() {
+        if (isCollapsed) return
+        isCollapsed = true
+        const tl = gsap.timeline()
+        tl.to([separator, nav, contact], { autoAlpha: 0, scale: 0.8, duration: 0.3 }, 0)
+        tl.to(header, { width: 250, duration: 0.4, ease: 'power2.inOut' }, 0)
+        tl.to(available, { autoAlpha: 1, scale: 1, duration: 0.3 }, 0.15)
+      }
+
+      function expand() {
+        if (!isCollapsed) return
+        isCollapsed = false
+        const tl = gsap.timeline()
+        tl.to(available, { autoAlpha: 0, scale: 0.8, duration: 0.2 }, 0)
+        tl.to(header, { width: fullWidth, duration: 0.4, ease: 'power2.inOut' }, 0)
+        tl.to([separator, nav, contact], { autoAlpha: 1, scale: 1, duration: 0.3 }, 0.15)
+      }
+
+      ScrollTrigger.create({
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: (self) => {
+          // Only react after scrolling past hero area
+          if (self.scroll() < 100) {
+            expand()
+            return
+          }
+          if (self.direction === 1) {
+            collapse()
+          } else {
+            expand()
+          }
         },
       })
-
-      tl.to(
-        [separator, nav, contact],
-        { autoAlpha: 0, scale: 0.8, duration: 0.4 },
-        0
-      )
-
-      tl.to(header, { width: 250, duration: 0.5 }, 0)
-
-      tl.to(available, { autoAlpha: 1, scale: 1, duration: 0.3 }, 0.3)
 
       // Refresh after a frame to sync with current scroll position
       requestAnimationFrame(() => ScrollTrigger.refresh())
@@ -110,20 +135,20 @@ export function Header() {
           <a
             key={link.href}
             href={link.href}
-            className="font-body text-sm font-medium whitespace-nowrap transition-colors"
-            style={{
-              color: 'var(--color-text-secondary)',
-              transitionDuration: 'var(--duration-fast)',
-              transitionTimingFunction: 'var(--ease-default)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'var(--color-text-primary)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = 'var(--color-text-secondary)'
-            }}
+            className="nav-flip-link font-body text-sm font-medium whitespace-nowrap"
           >
-            {link.label}
+            <span
+              className="nav-flip-top"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >
+              {link.label}
+            </span>
+            <span
+              className="nav-flip-bottom"
+              style={{ color: 'var(--color-primary)' }}
+            >
+              {link.label}
+            </span>
           </a>
         ))}
       </nav>
@@ -147,6 +172,8 @@ export function Header() {
         className="absolute inset-0 flex items-center justify-center gap-2"
         style={{
           visibility: 'hidden',
+          opacity: 0,
+          transform: 'scale(0.8)',
           paddingLeft: 40,
         }}
       >
